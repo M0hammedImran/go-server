@@ -1,0 +1,50 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {}
+    },
+    "paths": {
+        "/ping": {
+            "get": {
+                "description": "do ping",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "PING"
+                ],
+                "summary": "ping",
+                "responses": {
+                    "200": {
+                        "description": "{\\\"message\\\": \\\"pong\\\", \\\"data\\\": { \\\"Accept\\\": [\\\"application/json\\\"]}}",
+                        "schema": {
+                            "$ref": "#/definitions/main.PingRequest"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "main.PingRequest": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,31 @@
+definitions:
+  main.PingRequest:
+    properties:
+      data:
+        additionalProperties:
+          items:
+            type: string
+          type: array
+        type: object
+      message:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /ping:
+    get:
+      consumes:
+      - application/json
+      description: do ping
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{\"message\": \"pong\", \"data\": { \"Accept\": [\"application/json\"]}}'
+          schema:
+            $ref: '#/definitions/main.PingRequest'
+      summary: ping
+      tags:
+      - PING
+swagger: "2.0"
